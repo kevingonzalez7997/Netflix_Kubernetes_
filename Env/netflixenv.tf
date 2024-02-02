@@ -17,7 +17,6 @@ resource "aws_instance" "netflix" {
   tags = {
     Name = "jenkins_manager"
   }
-
 }
 
 resource "aws_instance" "agent" {
@@ -34,8 +33,6 @@ resource "aws_instance" "agent" {
   }
 }
 
-
-
 resource "aws_instance" "monitor" {
   ami           = "ami-0c7217cdde317cfec"
   instance_type = "t2.medium"
@@ -49,7 +46,6 @@ resource "aws_instance" "monitor" {
     Name = "monitor"
   }
 }
-
 ###################SECURITY GROUP ##############################
 resource "aws_security_group" "manager" {
     name = "manager"
@@ -67,21 +63,7 @@ resource "aws_security_group" "manager" {
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
-#SonarQube port
-   ingress {
-    from_port   = 9000
-    to_port     = 9000
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
+  
 egress {
     from_port   = 0
     to_port     = 0
@@ -101,6 +83,14 @@ resource "aws_security_group" "agent" {
  ingress {
     from_port   = 22
     to_port     = 22
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  #SonarQube port
+   ingress {
+    from_port   = 9000
+    to_port     = 9000
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }

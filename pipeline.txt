@@ -1,11 +1,14 @@
-pipeline{
-    agent any
+pipeline {
+    agent {
+        label 'agent'
+    }
     tools{
         jdk 'jdk17'
         nodejs 'node16'
     }
     environment {
         SCANNER_HOME=tool 'sonar-scanner'
+        DOCKERHUB_CREDENTIALS = credentials('kevingonzalez7997-dockerhub')
     }
     stages {
         stage('clean workspace'){
@@ -13,11 +16,7 @@ pipeline{
                 cleanWs()
             }
         }
-        stage('Checkout from Git'){
-            steps{
-                git branch: 'main', url: 'https://github.com/Aj7Ay/Netflix-clone.git'
-            }
-        }
+   
         stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
@@ -51,25 +50,20 @@ pipeline{
         }
         stage("Docker Build & Push"){
             steps{
-                script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
-                       sh "docker build --build-arg TMDB_V3_API_KEY=<yourtmdbapikey> -t netflix ."
-                       sh "docker tag netflix nasi101/netflix:latest "
-                       sh "docker push nasi101/netflix:latest "
+                       sh "docker build --build-arg TMDB_V3_API_KEY=41098dc58bd5150bab58f5d500e0731a -t netflix ."
+                       sh "docker tag netflix kevingonzalez7997/netflix:latest "
+                       sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                       sh "docker push kevingonzalez7997/netflix:latest "
                     }
-                }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image nasi101/netflix:latest > trivyimage.txt" 
+                sh "trivy image kevingonzalez7997/netflix:latest > trivyimage.txt" 
             }
         }
-        stage('Deploy to container'){
-            steps{
-                sh 'docker run -d -p 8081:80 nasi101/netflix:latest'
-            }
-        }
+
         stage('Deploy to kubernets'){
             steps{
                 script{
