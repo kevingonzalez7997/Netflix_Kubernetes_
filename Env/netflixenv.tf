@@ -12,7 +12,7 @@ resource "aws_instance" "netflix" {
   key_name = "defaultkey"
   user_data = "${file("netflix.sh")}"
   root_block_device {
-    volume_size = 12  # Set the desired volume size in GB
+    volume_size = 12 
   }
   tags = {
     Name = "jenkins_manager"
@@ -26,7 +26,7 @@ resource "aws_instance" "agent" {
   key_name = "defaultkey"
   user_data = "${file("agent.sh")}"
   root_block_device {
-    volume_size = 12  # Set the desired volume size in GB
+    volume_size = 12  
   }
   tags = {
     Name = "jenkins_agent"

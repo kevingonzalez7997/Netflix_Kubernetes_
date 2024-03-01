@@ -43,8 +43,6 @@ sudo mv node_exporter.service /etc/systemd/system/
 
 sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
-
-
 ######################################## GRAFANA #############################################################
 
 sudo apt-get update
