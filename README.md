@@ -26,7 +26,7 @@ Trivy is a vulnerability scanner for containers and other artifacts.
   sudo apt-get update
   sudo apt-get install trivy
   ```
-2. **Output Storage**: Ensure that Trivy scan outputs are saved in a `reports` directory of your CI/CD pipeline workspace (e.g., /var/lib/jenkins_home/workspace/<your-pipeline-name>/reports/trivy_report.json).
+2. **Output Storage**: Ensure that Trivy scan outputs are saved in a `reports` directory of your CI/CD pipeline workspace (e.g., /var/lib/jenkins_home/workspace/<your-pipeline-name>/reports/**trivy_report.json**).
    
 ### 2. SonarQube
 SonarQube is used for static code analysis
@@ -47,7 +47,7 @@ chmod +x zap_install.sh
 sudo ./zap_install.sh -q -dir /opt/zap
 ```  
 
-2. **Output Storage**: Ensure that OWASP ZAP scan results are saved in the `reports` directory of your pipeline workspace (e.g., /var/lib/jenkins_home/workspace/<your-pipeline-name>/reports/zap_scan_results.json).
+2. **Output Storage**: Ensure that OWASP ZAP scan results are saved in the `reports` directory of your pipeline workspace (e.g., /var/lib/jenkins_home/workspace/<your-pipeline-name>/reports/**zap_scan_results.json**).
 
 ### 4. Checkov
 Checkov is used for static analysis of Terraform configurations.
@@ -56,4 +56,4 @@ Checkov is used for static analysis of Terraform configurations.
 
 2. **Checkov**: Install Checkov in the Python Env
 
-3. **Output Storage**: Ensure that Checkov scan outputs are saved in the reports directory of your pipeline workspace (e.g., /var/lib/jenkins_home/workspace/<your-pipeline-name>/reports/checkov_report.json).
+3. **Output Storage**: Ensure that Checkov scan outputs are saved in the reports directory of your pipeline workspace (e.g., /var/lib/jenkins_home/workspace/<your-pipeline-name>/reports/**checkov_report.json**).
