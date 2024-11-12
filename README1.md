@@ -17,17 +17,16 @@ For each tool, write a brief explanation covering the following:
 - What the tool does.
 - Why you are using it in the CI/CD pipeline.
 
-1. **Trivy**: A vulnerability scanner for containers and other artifacts.
-2. **SonarQube**: A platform for code quality analysis, run through Docker (static testing).
-3. **OWASP ZAP**: A security tool for application testing, used in headless mode (dynamic testing).
-4. **Checkov**: A static analysis tool for Terraform configurations.
+1. **Trivy** 
+2. **SonarQube** 
+3. **OWASP ZAP**
+4. **Checkov**
 
 ---
 
 ## Installation and Configuration
 
 ### 1. Trivy Installation
-Trivy is a vulnerability scanner for containers and other artifacts.
 
 1. **Install Trivy** by following the [official installation documentation](https://aquasecurity.github.io/trivy/v0.18.3/installation/):
    ```bash
@@ -41,8 +40,7 @@ Trivy is a vulnerability scanner for containers and other artifacts.
 
 ---
 
-### 2. SonarQube Setup for Static Code Analysis
-SonarQube is used for static code analysis to improve code quality and security.
+### 2. SonarQube Installation
 
 #### Part 1: SonarQube Installation with Docker
 1. **Run SonarQube in Docker**:
@@ -90,7 +88,7 @@ SonarQube is used for static code analysis to improve code quality and security.
 
 ---
 
-### 3. OWASP ZAP Setup for Dynamic Security Testing
+### 3. OWASP ZAP
 OWASP ZAP helps with dynamic security testing for web applications. **It must be run in headless mode** to enable seamless integration into the CI/CD pipeline without a graphical interface.
 
 1. **Install OWASP ZAP** in **headless mode** for scanning web applications.
@@ -104,9 +102,7 @@ OWASP ZAP helps with dynamic security testing for web applications. **It must be
 
 ---
 
-### 4. Checkov Setup for Static Analysis of Terraform Configurations
-Checkov is used for static analysis of Terraform configurations to identify security misconfigurations.
-
+### 4. Checkov Setup 
 1. **Set up Python Environment**:
    - Create a Python virtual environment for Checkov.
 
