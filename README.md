@@ -42,7 +42,7 @@ OWASP ZAP helps with dynamic security testing for web applications
 1. **OWASP ZAP**: Install OWASP ZAP in headless mode for scanning web applications.
 
 ```bash
-wget https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2_14_0_unix.sh -O zap_install.sh
+wget https://github.com/zaproxy/zaproxy/releases/download/v2.15.0/ZAP_2_15_0_unix.sh -O zap_install.sh
 chmod +x zap_install.sh
 sudo ./zap_install.sh -q -dir /opt/zap
 ```  
