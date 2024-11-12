@@ -1,8 +1,9 @@
 
 # CI/CD DevSecOps Pipeline
 
-This guide provides instructions for setting up a CI/CD pipeline integrated with security tools for a DevSecOps approach. 
-Follow these steps to install and configure Trivy, OWASP ZAP (headless mode), SonarQube, and Checkov on an Ubuntu EC2 server.
+Welcome to the CI/CD DevSecOps Pipeline! In the last workload, you were introduced to an environment where you had to identify vulnerabilities—finding weak spots and considering how they might impact production. Now, we’re taking things a step further: this time, we’ll be deploying a DevOps CI/CD pipeline, but with a twist. Our goal is to make it a DevSecOps pipeline, embedding security into each stage from the very beginning.
+
+As we go through the setup, remember to treat each tool as its own step in the CI/CD process. For each one, document what the tool does and why it’s crucial to the pipeline, building security right into the workflow.
 
 ## Prerequisites
 Ensure the following are set up in your environment:
