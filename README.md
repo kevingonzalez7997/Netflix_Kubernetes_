@@ -26,7 +26,7 @@ Trivy is a vulnerability scanner for containers and other artifacts.
   sudo apt-get update
   sudo apt-get install trivy
   ```
-2. **Output Storage**: Ensure that Trivy scan outputs are saved in a `reports` directory of your CI/CD pipeline workspace (e.g., /var/lib/jenkins_home/workspace/<your-pipeline-name>/reports/**trivy_report.json**).
+2. **Output Storage**: Ensure that [Trivy scan](https://aquasecurity.github.io/trivy/v0.18.3/) outputs are saved in a `reports` directory of your CI/CD pipeline workspace (e.g., /var/lib/jenkins_home/workspace/<your-pipeline-name>/reports/**trivy_report.json**).
    
 ### 2. SonarQube
 SonarQube is used for static code analysis
